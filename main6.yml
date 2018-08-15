@@ -1,0 +1,10 @@
+- name: doc ins
+  yum:
+   name: docker
+   state: latest
+
+- name: doc ser
+  service:
+   name: docker
+   state: restarted
+

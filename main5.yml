@@ -1,0 +1,6 @@
+---
+- name: docker
+  hosts: all
+  become: true
+  tasks:
+   - import_tasks: main6.yml

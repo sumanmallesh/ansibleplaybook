@@ -1,0 +1,16 @@
+---
+- name: install
+  hosts: webserver
+  become: true
+  tasks:
+  - name: install
+    yum:
+     name: docker
+     state: latest
+    notify: restart docker
+
+  handlers:
+  - name: restart docker
+    service:
+     name: docker
+     state: restarted

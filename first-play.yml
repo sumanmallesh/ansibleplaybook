@@ -1,0 +1,17 @@
+---
+- name: install 
+  hosts: webserver
+  become: true
+  vars:
+   pkg_name: "postfix"
+  tasks:
+  - name: install "{{ pkg_name }}"
+    yum:
+     name: "{{ pkg_name }}"
+     state: latest
+
+  - name: restart "{{ pkg_name }}"
+    service:
+     name: "{{ pkg_name }}"
+     state: restarted 
+

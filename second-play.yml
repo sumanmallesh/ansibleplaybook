@@ -1,0 +1,15 @@
+---
+- name: install docker and restart service
+  hosts: webserver
+  become: true
+  tasks:
+  - name: install docker
+    yum:
+     name: "{{ pkg_name}}"
+     state: latest
+
+  - name: restart docker servie
+    service:
+     name: "{{ pkg_name}}"
+     state: restarted 
+
